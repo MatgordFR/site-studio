@@ -3,13 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Durcissement : tout est servi depuis le site. 0 script/style inline, 0 CDN, 0 requête sortante. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; frame-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'none'">
+<meta name="referrer" content="no-referrer">
+
 <title>Sillage — Studio de direction artistique & identités de marque</title>
-<meta name="description" content="Sillage, studio de direction artistique. Nous dessinons des identités de marque qui laissent une trace : logotypes, éditions, sites, packaging. Démo de site — MatgordFR.">
+<meta name="description" content="Sillage, studio de direction artistique à Lyon. Nous dessinons des identités de marque qui laissent une trace : logotypes, éditions, sites, packaging. Démo de site — MatgordFR.">
 <meta name="theme-color" content="#EBE9E3">
 <meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23EBE9E3'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%231D2AE8'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Sillage">
+<meta property="og:url" content="https://matgordfr.github.io/site-studio/">
 <meta property="og:title" content="Sillage — studio de direction artistique">
-<meta property="og:description" content="Des identités de marque qui laissent une trace.">
+<meta property="og:description" content="Des identités de marque qui laissent une trace. Lyon.">
+<meta property="og:image" content="https://matgordfr.github.io/site-studio/preview.jpg">
+<meta property="og:image:width" content="1560">
+<meta property="og:image:height" content="975">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sillage — studio de direction artistique">
+<meta name="twitter:description" content="Des identités de marque qui laissent une trace. Lyon.">
+<meta name="twitter:image" content="https://matgordfr.github.io/site-studio/preview.jpg">
+
+<link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/studio.css">
 </head>
 <body>
@@ -17,19 +35,23 @@
 <a class="skip" href="#travaux">Aller aux travaux</a>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 
-<header class="nav">
+<header class="nav" id="top" data-nav>
   <div class="wrap nav-in">
-    <a class="brand" href="#top" data-cursor>Sillage<span class="brand-dot">.</span></a>
-    <nav class="nav-links" aria-label="Navigation">
-      <a href="#travaux" data-cursor>Travaux</a>
-      <a href="#approche" data-cursor>Approche</a>
-      <a href="#studio" data-cursor>Le studio</a>
+    <a class="brand" href="#top" data-nav-link data-cursor>Sillage<span class="brand-dot">.</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navigation">
+      <a href="#travaux" data-nav-link data-cursor>Travaux</a>
+      <a href="#atelier" data-nav-link data-cursor>L'atelier</a>
+      <a href="#approche" data-nav-link data-cursor>Approche</a>
+      <a href="#studio" data-nav-link data-cursor>Le studio</a>
     </nav>
-    <a class="nav-cta" href="#contact" data-cursor><span class="av-dot" aria-hidden="true"></span>Disponible — automne 2026</a>
+    <a class="nav-cta" href="#contact" data-nav-link data-cursor><span class="av-dot" aria-hidden="true"></span>Disponible — automne 2026</a>
+    <button class="nav-burger" id="navBurger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+      <span class="burger-bar" aria-hidden="true"></span>
+    </button>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
@@ -42,7 +64,7 @@
       </h1>
       <div class="hero-foot">
         <p class="hero-lede" data-reveal>Nous sommes un petit studio qui dessine des identités entières — le nom, le signe, la voix, les pages. Six projets par an, pas un de plus. Le temps de bien faire.</p>
-        <a class="hero-scroll" href="#travaux" data-reveal data-cursor>Voir les travaux <span aria-hidden="true">↓</span></a>
+        <a class="hero-scroll" href="#travaux" data-nav-link data-cursor>Voir les travaux <span aria-hidden="true">↓</span></a>
       </div>
     </div>
     <div class="hero-marquee" aria-hidden="true">
@@ -58,57 +80,95 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <h2 class="sec-title">Travaux <span class="count">— six récents</span></h2>
-        <p class="sec-note">Sélection 2023 – 2025. Les visuels de couverture sont générés pour cette démo.</p>
+        <p class="sec-note">Sélection 2023 – 2025. Les couvertures sont générées — <b>cliquez-en une</b> pour voir une autre piste.</p>
       </div>
       <div class="grid">
-        <article class="work" data-cursor data-reveal data-seed="7" style="--a:#1D2AE8;--b:#FF5C39">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="7" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Maison Vérel — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Maison Vérel</h3>
             <p class="work-cat">Parfumerie · identité &amp; packaging</p>
             <span class="work-year">2025</span>
           </div>
         </article>
-        <article class="work" data-cursor data-reveal data-seed="23" style="--a:#0E1E14;--b:#8CD24A">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="23" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Orphéon — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Orphéon</h3>
             <p class="work-cat">Label de musique · direction artistique</p>
             <span class="work-year">2024</span>
           </div>
         </article>
-        <article class="work" data-cursor data-reveal data-seed="41" style="--a:#4413B8;--b:#F4C10F">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="41" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Klor — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Klor</h3>
             <p class="work-cat">Studio de yoga · identité &amp; web</p>
             <span class="work-year">2025</span>
           </div>
         </article>
-        <article class="work" data-cursor data-reveal data-seed="58" style="--a:#B31255;--b:#12324F">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="58" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Banc Public — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Banc Public</h3>
             <p class="work-cat">Festival · affiche &amp; signalétique</p>
             <span class="work-year">2024</span>
           </div>
         </article>
-        <article class="work" data-cursor data-reveal data-seed="72" style="--a:#175E52;--b:#EA7A2B">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="72" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Feuille — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Feuille</h3>
             <p class="work-cat">Édition indépendante · identité</p>
             <span class="work-year">2023</span>
           </div>
         </article>
-        <article class="work" data-cursor data-reveal data-seed="90" style="--a:#20208C;--b:#F0568A">
-          <div class="poster" data-poster></div>
+        <article class="work" data-seed="90" data-reveal>
+          <button class="poster" type="button" data-poster data-cursor aria-label="Trame — générer une autre piste de couverture"></button>
           <div class="work-meta">
             <h3>Trame</h3>
             <p class="work-cat">Marque textile · identité &amp; e-shop</p>
             <span class="work-year">2025</span>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ L'ATELIER (signature interactive) ============ -->
+  <section class="atelier" id="atelier">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2 class="sec-title">L'atelier</h2>
+        <p class="sec-note">Notre façon de chercher, en accéléré. Réglez, tirez au sort — <b>chaque combinaison est une piste unique</b>.</p>
+      </div>
+      <div class="atelier-lab" data-reveal>
+        <div class="atelier-stage">
+          <div class="atelier-poster" id="atelierPoster" aria-hidden="true"></div>
+        </div>
+        <div class="atelier-controls">
+          <div class="ctrl">
+            <label class="ctrl-lab" for="atInit">Initiale</label>
+            <input class="ctrl-input" id="atInit" type="text" maxlength="2" value="S" autocomplete="off" spellcheck="false" data-cursor aria-label="Lettre de l'affiche">
+          </div>
+          <div class="ctrl">
+            <span class="ctrl-lab" id="atDuoLab">Duo de couleurs</span>
+            <div class="swatches" role="group" aria-labelledby="atDuoLab" id="atSwatches"></div>
+          </div>
+          <div class="ctrl">
+            <span class="ctrl-lab" id="atVarLab">Composition</span>
+            <div class="variants" role="group" aria-labelledby="atVarLab" id="atVariants">
+              <button type="button" class="vbtn is-active" data-variant="0" data-cursor aria-pressed="true">Arc</button>
+              <button type="button" class="vbtn" data-variant="1" data-cursor aria-pressed="false">Rayures</button>
+              <button type="button" class="vbtn" data-variant="2" data-cursor aria-pressed="false">Anneaux</button>
+              <button type="button" class="vbtn" data-variant="3" data-cursor aria-pressed="false">Bloc</button>
+            </div>
+          </div>
+          <button type="button" class="dice" id="atDice" data-cursor>
+            <span class="dice-face" aria-hidden="true">⚄</span> Tirer au sort une piste
+          </button>
+          <p class="atelier-fine">Le même générateur dessine les six couvertures ci-dessus. Aucune image importée — tout est tracé dans le navigateur.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -140,6 +200,24 @@
     </div>
   </section>
 
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2 class="sec-title">Ce qu'on dessine</h2>
+        <p class="sec-note">Une identité, ce n'est pas qu'un logo. C'est tout ce avec quoi les gens vous rencontrent.</p>
+      </div>
+      <ul class="svc-list">
+        <li class="svc" data-reveal><span class="svc-n">Identité de marque</span><span class="svc-d">Nom, logotype, système visuel complet, guide d'usage.</span></li>
+        <li class="svc" data-reveal><span class="svc-n">Direction artistique</span><span class="svc-d">La ligne — éprouvée sur de vrais supports avant d'être figée.</span></li>
+        <li class="svc" data-reveal><span class="svc-n">Édition &amp; print</span><span class="svc-d">Livres, catalogues, affiches. Le papier, on connaît.</span></li>
+        <li class="svc" data-reveal><span class="svc-n">Packaging</span><span class="svc-d">L'objet qu'on a envie de garder après l'avoir ouvert.</span></li>
+        <li class="svc" data-reveal><span class="svc-n">Web &amp; interactif</span><span class="svc-d">Des pages qui bougent et qui tiennent — comme celle-ci.</span></li>
+        <li class="svc" data-reveal><span class="svc-n">Typographie</span><span class="svc-d">Choix, réglages fins, et parfois un dessin de lettre sur mesure.</span></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ============ STUDIO ============ -->
   <section class="studio" id="studio">
     <div class="wrap studio-in">
@@ -160,12 +238,36 @@
     </div>
   </section>
 
+  <!-- ============ AVIS ============ -->
+  <section class="avis" id="avis">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2 class="sec-title">Ce qu'ils en disent</h2>
+        <p class="sec-note">Trois clients, trois projets. Fictifs — c'est une démo.</p>
+      </div>
+      <div class="avis-grid">
+        <figure class="avis-card" data-reveal>
+          <blockquote>Ils ont trouvé le mot qu'on cherchait depuis deux ans. Le reste a coulé de source.</blockquote>
+          <figcaption>Hélène V. <span>— Maison Vérel</span></figcaption>
+        </figure>
+        <figure class="avis-card" data-reveal>
+          <blockquote>Une seule direction proposée, mais la bonne. On n'a rien eu à trancher, juste à dire oui.</blockquote>
+          <figcaption>Marc D. <span>— Orphéon</span></figcaption>
+        </figure>
+        <figure class="avis-card" data-reveal>
+          <blockquote>Notre packaging se fait voler en boutique. C'est un problème qu'on accepte volontiers.</blockquote>
+          <figcaption>Yasmine K. <span>— Klor</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
   <section class="contact" id="contact">
     <div class="wrap contact-in" data-reveal>
       <p class="contact-eyebrow">On a de la place pour un projet cet automne</p>
       <h2 class="contact-title">Vous avez quelque chose<br>à dire ? <em>Parlons-en.</em></h2>
-      <a class="contact-mail" href="#top" data-cursor>bonjour@studio-sillage.fr</a>
+      <a class="contact-mail" href="#top" data-nav-link data-cursor>bonjour@studio-sillage.fr</a>
       <p class="contact-fine">Démo : ce lien n'ouvre pas de vraie messagerie. En production, il lancerait un mail ou un formulaire de contact.</p>
     </div>
   </section>
@@ -175,7 +277,7 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <span class="foot-brand">Sillage<span class="brand-dot">.</span></span>
-    <p class="foot-demo">Site de démonstration — studio, projets et personnes fictifs.<br>Conçu &amp; codé par <a href="https://github.com/MatgordFR" data-cursor rel="noopener">MatgordFR</a> · <a href="https://matgord.com" data-cursor rel="noopener">matgord.com</a></p>
+    <p class="foot-demo">Site de démonstration — studio, projets et personnes fictifs. Servi 100&nbsp;% en local, sans tracker.<br>Conçu &amp; codé par <a href="https://github.com/MatgordFR" data-cursor rel="noopener noreferrer">MatgordFR</a> · <a href="https://matgord.com" data-cursor rel="noopener noreferrer">matgord.com</a></p>
   </div>
 </footer>
 
