@@ -9,11 +9,11 @@
 ![Art génératif](https://img.shields.io/badge/affiches-g%C3%A9n%C3%A9ratives_SVG-8957e5?style=flat-square)
 ![Licence](https://img.shields.io/badge/licence-ISC-2f81f7?style=flat-square)
 
-[![▶ Ouvrir la démo](https://img.shields.io/badge/%E2%96%B6_Ouvrir_la_d%C3%A9mo-1D2AE8?style=for-the-badge)](https://matgordfr.github.io/sillage-demo/)
+[![▶ Ouvrir la démo](https://img.shields.io/badge/%E2%96%B6_Ouvrir_la_d%C3%A9mo-1D2AE8?style=for-the-badge)](https://matgordfr.github.io/site-studio/)
 
 <br>
 
-[![Aperçu de Sillage](preview.jpg)](https://matgordfr.github.io/sillage-demo/)
+[![Aperçu de Sillage](preview.jpg)](https://matgordfr.github.io/site-studio/)
 
 </div>
 
@@ -66,7 +66,7 @@ python3 -m http.server 8000
 ## 👤 Auteur
 
 Réalisé par **[MatgordFR](https://github.com/MatgordFR)** — dev indépendant (bots Discord, sites, IA).
-🌐 [matgord.com](https://matgord.com) · 🐦 [@matgordfr](https://x.com/matgordfr) · 🎨 [les autres démos](https://matgordfr.github.io/matgord-portfolio-demos/)
+🌐 [matgord.com](https://matgord.com) · 🐦 [@matgordfr](https://x.com/matgordfr) · 🎨 [les autres démos](https://matgordfr.github.io/mes-demos-web/)
 
 ## 📄 Licence
 
