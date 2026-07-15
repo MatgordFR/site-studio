@@ -48,6 +48,7 @@ ol,ul{margin:0; padding:0; list-style:none}
 .wrap{width:min(var(--wrap),90vw); margin-inline:auto}
 .sr-only,.skip{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
 .skip:focus{position:fixed; top:12px; left:12px; width:auto; height:auto; clip:auto; z-index:1000; background:var(--ink); color:var(--paper); padding:10px 16px; border-radius:6px; cursor:auto}
+main[tabindex]:focus{outline:none}
 
 /* ---------- custom cursor ---------- */
 .cursor{position:fixed; top:0; left:0; width:12px; height:12px; border-radius:50%; background:var(--klein); pointer-events:none; z-index:999; transform:translate(-50%,-50%); mix-blend-mode:difference; transition:width .26s cubic-bezier(.2,.8,.2,1), height .26s cubic-bezier(.2,.8,.2,1), background .26s; will-change:transform}
@@ -55,6 +56,8 @@ ol,ul{margin:0; padding:0; list-style:none}
 .no-cursor .cursor{display:none}
 /* curseur custom actif → on masque le curseur système même sur les contrôles */
 body:not(.no-cursor) a,body:not(.no-cursor) button,body:not(.no-cursor) input,body:not(.no-cursor) [data-cursor]{cursor:none}
+/* champs texte : garder le I-beam pour l'édition (le curseur custom masquerait le point d'insertion) */
+body:not(.no-cursor) .ctrl-input{cursor:text}
 
 /* ---------- nav ---------- */
 .nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--porcelain) 82%,transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-soft)}
